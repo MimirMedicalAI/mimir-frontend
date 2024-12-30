@@ -2,6 +2,7 @@ import {useMemo, useState} from "react";
 import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import Layout from "@/components/layout.tsx";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 
 function getGreeting() {
     const currentHour = new Date().getHours();
@@ -67,11 +68,12 @@ function App() {
                         {filteredPatients.map((patient, index) => (
                             <div key={index} className="flex items-center justify-between">
                                 <div className="flex items-center space-x-3">
-                                    <div
-                                        className="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold"
-                                    >
-                                        {patient.name[0]}
-                                    </div>
+                                    <Avatar>
+                                        <AvatarImage
+                                            src={patient.gender === "Female" ? "https://ui.shadcn.com/avatars/01.png" : "https://ui.shadcn.com/avatars/02.png"}
+                                            alt="@shadcn"/>
+                                        <AvatarFallback>CN</AvatarFallback>
+                                    </Avatar>
                                     <div>
                                         <p className="text-gray-800 font-medium">{patient.name}</p>
                                         <p className="text-sm text-gray-600">
