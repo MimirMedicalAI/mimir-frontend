@@ -12,6 +12,7 @@ import {
     SidebarSeparator,
 } from "@/components/ui/sidebar";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
+import {Link, useLocation} from "react-router";
 
 const items = [
     {
@@ -37,6 +38,7 @@ const items = [
 ];
 
 export function AppSidebar() {
+    const location = useLocation()
     return (
         <Sidebar>
             <SidebarHeader className="mt-2 ml-2">
@@ -49,11 +51,13 @@ export function AppSidebar() {
                         <SidebarMenu>
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild isActive={item.title === "Home"}>
-                                        <a href={item.url} className="text-gray-800">
+                                    <SidebarMenuButton asChild isActive={location.pathname === item.url}>
+                                        <Link
+                                            to={item.url}
+                                        >
                                             <item.icon className="text-gray-800"/>
-                                            <span>{item.title}</span>
-                                        </a>
+                                            <span className="text-gray-800">{item.title}</span>
+                                        </Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
                             ))}
