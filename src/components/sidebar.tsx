@@ -16,22 +16,22 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 const items = [
     {
         title: "Home",
-        url: "#",
+        url: "/",
         icon: Home,
     },
     {
         title: "Patients",
-        url: "#",
+        url: "/patients",
         icon: Users,
     },
     {
         title: "Med-AI Assistant",
-        url: "#",
+        url: "/med-AI-Assistant",
         icon: BotMessageSquare,
     },
     {
         title: "Patient Communication",
-        url: "#",
+        url: "/patient-communication",
         icon: MessagesSquareIcon,
     },
 ];
