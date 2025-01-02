@@ -1,6 +1,9 @@
 import {useParams} from "react-router";
 import {useState} from "react";
 import {Textarea} from "@/components/ui/textarea.tsx";
+import {Label} from "@/components/ui/label";
+import {Button} from "@/components/ui/button.tsx";
+import {Disc, WandSparkles} from "lucide-react";
 
 enum PatientTab {
     TodaysVisit = "Today's Visit",
@@ -26,27 +29,61 @@ function PatientDetails() {
             </div>
 
             {/*TABS*/}
-            <div>
+            <div className="w-full">
                 {currentTab.valueOf() === PatientTab.TodaysVisit && (
-                    <>
-                        <h3 className="text-xl font-medium mb-4">Notes</h3>
-                        <h4 className="text-sm text-gray-800 mb-1">
-                            Subjective (patient's symptoms, concerns, and history)
-                        </h4>
-                        <Textarea/>
-                        <h4 className="text-sm text-gray-800 mt-6 mb-1">
-                            Objective (physical exam findings, test result, etc)
-                        </h4>
-                        <Textarea/>
-                        <h4 className="text-sm text-gray-800 mt-6 mb-1">
-                            Assessment (doctor's diagnosis and clinical reasoning)
-                        </h4>
-                        <Textarea/>
-                        <h4 className="text-sm text-gray-800 mt-6 mb-1">
-                            Treatment Plan (treatment plan, medications, and follow-up instructions)
-                        </h4>
-                        <Textarea/>
-                    </>
+                    <div className="w-full">
+                        <div className="flex flex-col space-y-10 w-full">
+                            <div className="grid w-full gap-2">
+                                <Label htmlFor="message">Subjective (patient's symptoms, concerns, and history)</Label>
+                                <Textarea className="h-32" id="message"/>
+                                <div className="flex flex-row space-x-1">
+                                    <Button>
+                                        <Disc/>Record
+                                    </Button>
+                                    <Button>
+                                        <WandSparkles/>Keywords
+                                    </Button>
+                                </div>
+                            </div>
+                            <div className="grid w-full gap-1.5">
+                                <Label htmlFor="message">Objective (physical exam findings, test result, etc)</Label>
+                                <Textarea className="h-32" id="message"/>
+                                <div className="flex flex-row space-x-1">
+                                    <Button>
+                                        <Disc/>Record
+                                    </Button>
+                                    <Button>
+                                        <WandSparkles/>Keywords
+                                    </Button>
+                                </div>
+                            </div>
+                            <div className="grid w-full gap-1.5">
+                                <Label htmlFor="message">Assessment (doctor's diagnosis and clinical reasoning)</Label>
+                                <Textarea className="h-32" id="message"/>
+                                <div className="flex flex-row space-x-1">
+                                    <Button>
+                                        <Disc/>Record
+                                    </Button>
+                                    <Button>
+                                        <WandSparkles/>Keywords
+                                    </Button>
+                                </div>
+                            </div>
+                            <div className="grid w-full gap-1.5">
+                                <Label htmlFor="message">Treatment Plan (treatment plan, medications, and follow-up
+                                    instructions)</Label>
+                                <Textarea className="h-32" id="message"/>
+                                <div className="flex flex-row space-x-1">
+                                    <Button>
+                                        <Disc/>Record
+                                    </Button>
+                                    <Button>
+                                        <WandSparkles/>Keywords
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 )}
                 {currentTab.valueOf() === PatientTab.History && (
                     <div>Hii</div>
