@@ -1,9 +1,11 @@
-import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table.tsx";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table.tsx";
 import {useMemo, useState} from "react";
 import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
+import {useNavigate} from "react-router";
 
 function Patients() {
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
 
     const patients = [
@@ -20,6 +22,7 @@ function Patients() {
 
     return (
         <div className="flex flex-col items-start text-gray-800">
+            <h2 className="text-gray-800 text-2xl font-semibold mb-8">Patients</h2>
             <div className="flex items-center space-x-2 mb-8 w-96">
                 <Input
                     type="text"
@@ -33,7 +36,6 @@ function Patients() {
                 </Button>
             </div>
             <Table>
-                <TableCaption>A list of your patients.</TableCaption>
                 <TableHeader>
                     <TableRow>
                         <TableHead className="w-[150px]">First Name</TableHead>
@@ -47,7 +49,8 @@ function Patients() {
                 </TableHeader>
                 <TableBody>
                     {filteredPatients.map((patient, index) => (
-                        <TableRow key={index}>
+                        <TableRow key={index} className="hover:cursor-pointer"
+                                  onClick={() => navigate(`/patients/${encodeURIComponent(patient.name)}`)}>
                             <TableCell className="font-medium">{patient.name.split(" ")[0]}</TableCell>
                             <TableCell>{patient.name.split(" ")[1]}</TableCell>
                             <TableCell>01.01.1970</TableCell>

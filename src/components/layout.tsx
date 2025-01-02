@@ -5,7 +5,7 @@ export default function Layout({children}: { children: React.ReactNode }) {
     return (
         <SidebarProvider defaultOpen={true}>
             <AppSidebar/>
-            <main className="w-full h-screen py-28 px-14 mr-[255px]">
+            <main className="w-full h-screen py-28 px-14">
                 {children}
             </main>
         </SidebarProvider>
