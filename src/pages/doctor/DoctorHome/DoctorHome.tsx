@@ -14,7 +14,7 @@ function getGreeting() {
     }
 }
 
-function Home() {
+function DoctorHome() {
     const [searchTerm, setSearchTerm] = useState("");
 
     const patients = [
@@ -88,4 +88,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default DoctorHome;

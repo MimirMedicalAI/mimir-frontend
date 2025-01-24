@@ -1,8 +1,8 @@
 import {useParams} from "react-router";
 import {useState} from "react";
-import TodaysVisit from "@/pages/Patients/PatientDetails/TodaysVisit.tsx";
-import PatientHistory from "@/pages/Patients/PatientDetails/PatientHistory.tsx";
-import PatientBasicInfo from "@/pages/Patients/PatientDetails/PatientBasicInfo.tsx";
+import TodaysVisit from "@/pages/doctor/Patients/PatientDetails/TodaysVisit.tsx";
+import PatientHistory from "@/pages/doctor/Patients/PatientDetails/PatientHistory.tsx";
+import PatientBasicInfo from "@/pages/doctor/Patients/PatientDetails/PatientBasicInfo.tsx";
 
 enum PatientTab {
     TodaysVisit = "Today's Visit",

@@ -1,4 +1,4 @@
-import Chat from "@/pages/MedAIAssistant/Chat.tsx";
+import Chat from "@/pages/doctor/MedAIAssistant/Chat.tsx";
 
 function MedAIAssistant() {
     return (

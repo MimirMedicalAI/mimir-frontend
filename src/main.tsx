@@ -1,28 +1,36 @@
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import './index.css'
-import Home from './pages/Home/Home.tsx'
+import DoctorHome from '@/pages/doctor/DoctorHome/DoctorHome.tsx'
 import {BrowserRouter, Route, Routes} from "react-router";
 import Layout from "@/components/layout.tsx";
-import Patients from "@/pages/Patients/Patients.tsx";
-import MedAIAssistant from "@/pages/MedAIAssistant/MedAIAssistant.tsx";
-import PatientCommunication from "@/pages/PatientCommunication/PatientCommunication.tsx";
-import PatientDetails from "@/pages/Patients/PatientDetails/PatientDetails.tsx";
+import Patients from "@/pages/doctor/Patients/Patients.tsx";
+import MedAIAssistant from "@/pages/doctor/MedAIAssistant/MedAIAssistant.tsx";
+import PatientCommunication from "@/pages/doctor/PatientCommunication/PatientCommunication.tsx";
+import PatientDetails from "@/pages/doctor/Patients/PatientDetails/PatientDetails.tsx";
 import {TooltipProvider} from "@/components/ui/tooltip.tsx";
+import PatientHome from "@/pages/patient/PatientHome/PatientHome.tsx";
+import PatientLayout from "@/components/patient-layout.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <BrowserRouter>
             <TooltipProvider>
-                <Layout>
-                    <Routes>
-                        <Route path="/" element={<Home/>}/>
+                <Routes>
+                    {/* Doctor pages */}
+                    <Route element={<Layout/>}>
+                        <Route path="/" element={<DoctorHome/>}/>
                         <Route path="/patients" element={<Patients/>}/>
                         <Route path="/patients/:patientId" element={<PatientDetails/>}/>
                         <Route path="/med-ai-assistant" element={<MedAIAssistant/>}/>
                         <Route path="/patient-communication" element={<PatientCommunication/>}/>
-                    </Routes>
-                </Layout>
+                    </Route>
+
+                    {/* Patient pages */}
+                    <Route element={<PatientLayout/>}>
+                        <Route path="/patient" element={<PatientHome/>}/>
+                    </Route>
+                </Routes>
             </TooltipProvider>
         </BrowserRouter>
     </StrictMode>,

@@ -1,8 +1,8 @@
 import * as React from "react"
 import {Bot, Paperclip, Send, User} from "lucide-react"
-import {cn} from "@/lib/utils"
-import {Button} from "@/components/ui/button"
-import {Input} from "@/components/ui/input"
+import {cn} from "@/lib/utils.ts"
+import {Button} from "@/components/ui/button.tsx"
+import {Input} from "@/components/ui/input.tsx"
 
 function Chat() {
     const [messages, setMessages] = React.useState([
