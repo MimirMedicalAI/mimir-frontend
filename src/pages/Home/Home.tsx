@@ -35,9 +35,9 @@ function Home() {
         <div className="flex flex-col items-center">
             {/* Header */}
             <header className="mb-8 text-center">
-                <h1 className="text-2xl font-bold text-gray-800 mb-2">
+                <h2>
                     {greeting}, Dr. Hans
-                </h1>
+                </h2>
             </header>
 
             {/* Search Bar */}
@@ -56,10 +56,10 @@ function Home() {
 
             {/* Upcoming Patients */}
             <div className="p-6 rounded-lg shadow w-96">
-                <h2 className="text-lg font-bold text-gray-800 mb-1">Upcoming Patients</h2>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4>Upcoming Patients</h4>
+                <small>
                     You have {patients.length} upcoming patients today
-                </p>
+                </small>
 
                 {/* Patient List */}
                 <div className="space-y-8">
