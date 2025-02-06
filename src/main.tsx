@@ -11,12 +11,16 @@ import PatientDetails from "@/pages/doctor/Patients/PatientDetails/PatientDetail
 import {TooltipProvider} from "@/components/ui/tooltip.tsx";
 import PatientHome from "@/pages/patient/PatientHome/PatientHome.tsx";
 import PatientLayout from "@/components/patient-layout.tsx";
+import VisitDetails from "@/components/VisitDetails.tsx";
+import {Login} from "@/pages/doctor/Login/Login.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <BrowserRouter>
             <TooltipProvider>
                 <Routes>
+                    {/* Unauthenticated */}
+                    <Route path="/login" element={<Login/>}/>
                     {/* Doctor pages */}
                     <Route element={<Layout/>}>
                         <Route path="/" element={<DoctorHome/>}/>
@@ -29,6 +33,7 @@ createRoot(document.getElementById('root')!).render(
                     {/* Patient pages */}
                     <Route element={<PatientLayout/>}>
                         <Route path="/patient" element={<PatientHome/>}/>
+                        <Route path="/patient/visits/:visitId" element={<VisitDetails/>}/>
                     </Route>
                 </Routes>
             </TooltipProvider>

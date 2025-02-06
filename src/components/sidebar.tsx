@@ -72,8 +72,8 @@ export function AppSidebar() {
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
-                    <p className="text-gray-800 text-sm font-semibold">Dr. Hans Stubbe</p>
-                    <p className="text-gray-600 text-sm">Hausarzt</p>
+                    <p className="text-shade-800 text-sm font-semibold">Dr. Hans Stubbe</p>
+                    <p className="text-shade-600 text-sm">Hausarzt</p>
                 </div>
             </SidebarFooter>
         </Sidebar>
