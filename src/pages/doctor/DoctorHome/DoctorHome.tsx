@@ -55,7 +55,7 @@ function DoctorHome() {
             </div>
 
             {/* Upcoming Patients */}
-            <div className="p-6 rounded-lg shadow w-96">
+            <div className="p-6 rounded-lg shadow w-96 text-slate-800 space-y-6">
                 <h4>Upcoming Patients</h4>
                 <small>
                     You have {patients.length} upcoming patients today
