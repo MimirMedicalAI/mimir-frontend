@@ -1,6 +1,7 @@
 import {SidebarProvider} from "@/components/ui/sidebar";
 import {AppSidebar} from "@/components/sidebar";
 import {Outlet} from "react-router";
+import {Toaster} from "@/components/ui/toaster.tsx";
 
 export default function Layout() {
     return (
@@ -9,6 +10,7 @@ export default function Layout() {
             <main className="w-full h-full py-28 px-14">
                 <Outlet/>
             </main>
+            <Toaster/>
         </SidebarProvider>
     );
 }

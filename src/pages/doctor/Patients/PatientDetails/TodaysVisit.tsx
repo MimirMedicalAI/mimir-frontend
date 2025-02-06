@@ -1,7 +1,8 @@
 import {Label} from "@/components/ui/label.tsx";
 import {Textarea} from "@/components/ui/textarea.tsx";
 import {Button} from "@/components/ui/button.tsx";
-import {Disc, WandSparkles} from "lucide-react";
+import {Disc, FilePlus2, WandSparkles} from "lucide-react";
+import {toast} from "@/hooks/use-toast.ts";
 
 function TodaysVisit() {
     return (
@@ -56,6 +57,19 @@ function TodaysVisit() {
                         </Button>
                     </div>
                 </div>
+            </div>
+            <div className="flex flex-row justify-end">
+                <Button
+                    onClick={() => {
+                        toast({
+                            title: "SOAP created successfully",
+                            description: "View it in the patient's detail page.",
+                        })
+                    }}
+                >
+                    <FilePlus2/>
+                    Generate SOAP
+                </Button>
             </div>
         </div>
     )
