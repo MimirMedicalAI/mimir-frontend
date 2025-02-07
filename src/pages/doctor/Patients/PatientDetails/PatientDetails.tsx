@@ -10,7 +10,6 @@ enum PatientTab {
     BasicInfo = "Basic Information"
 }
 
-
 function PatientDetails() {
 
     const [currentTab, setCurrentTab] = useState<PatientTab>(PatientTab.TodaysVisit);
