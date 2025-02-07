@@ -2,6 +2,7 @@ import {useMemo, useState} from "react";
 import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
+import {useNavigate} from "react-router";
 
 function getGreeting() {
     const currentHour = new Date().getHours();
@@ -15,6 +16,7 @@ function getGreeting() {
 }
 
 function DoctorHome() {
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
 
     const patients = [
@@ -64,7 +66,8 @@ function DoctorHome() {
                 {/* Patient List */}
                 <div className="space-y-8">
                     {filteredPatients.map((patient, index) => (
-                        <div key={index} className="flex items-center justify-between">
+                        <div key={index} className="flex items-center justify-between hover:cursor-pointer"
+                             onClick={() => navigate(`/patients/${encodeURIComponent(patient.name)}`)}>
                             <div className="flex items-center space-x-3">
                                 <Avatar>
                                     <AvatarImage
