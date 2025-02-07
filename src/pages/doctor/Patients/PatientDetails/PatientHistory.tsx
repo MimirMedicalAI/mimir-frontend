@@ -153,6 +153,7 @@ function PatientHistory() {
                     </DialogContent>
                 </Dialog>
             </div>
+            <p>Patient history list here</p>
         </div>
     );
 }
