@@ -12,7 +12,7 @@ enum PatientTab {
 
 function PatientDetails() {
 
-    const [currentTab, setCurrentTab] = useState<PatientTab>(PatientTab.TodaysVisit);
+    const [currentTab, setCurrentTab] = useState<PatientTab>(PatientTab.History);
     const {patientId} = useParams()
     return (
         <div className="flex flex-col items-start text-gray-800">
