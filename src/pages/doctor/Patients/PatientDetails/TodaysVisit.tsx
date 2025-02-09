@@ -6,6 +6,7 @@ import {toast} from "@/hooks/use-toast.ts";
 import React from "react";
 import {ToastAction} from "@/components/ui/toast";
 import {Checkbox} from "@/components/ui/checkbox";
+import {useNavigate} from "react-router";
 
 const soapData = {
     subjective: `* Persistent cough for 3 weeks. The cough started as dry but has become productive in the last few days.
@@ -38,6 +39,7 @@ Differential Diagnoses to Rule Out: Early Pneumonia, Viral Upper Respiratory Inf
 };
 
 function TodaysVisit() {
+    const navigate = useNavigate();
     const [isRecording, setIsRecording] = React.useState(false);
     const [isRecordingDisabled, setIsRecordingDisabled] = React.useState(false);
     const [isPaused, setIsPaused] = React.useState(false);
@@ -305,7 +307,12 @@ function TodaysVisit() {
                                 </div>
                                 <div className="flex gap-2">
                                     <Button variant="outline" size="sm">Preview</Button>
-                                    <Button variant="default" size="sm">Send</Button>
+                                    <Button variant="default" size="sm" onClick={() => {
+                                        toast({
+                                            description: "Carenote sent to patient.",
+                                            duration: 5000,
+                                        });
+                                    }}>Send</Button>
                                 </div>
                             </div>
 
@@ -324,7 +331,12 @@ function TodaysVisit() {
                                     <p className="text-shade-600 text-sm">Create an order for X-ray at the nearest
                                         department.</p>
                                 </div>
-                                <Button variant="default" size="sm">Order</Button>
+                                <Button variant="default" size="sm" onClick={() => {
+                                    toast({
+                                        description: "X-ray order created for patient.",
+                                        duration: 5000,
+                                    });
+                                }}>Order</Button>
                             </div>
 
                             <div className="flex items-center justify-between p-4 bg-shade-200 rounded-lg">
@@ -334,8 +346,17 @@ function TodaysVisit() {
                                 </div>
                                 <Button variant="default" size="sm">Schedule</Button>
                             </div>
+
                         </div>
                     </div>
+                    <Button className="mt-10" onClick={() => {
+                        toast({
+                            title: `Visit with Erika completed`,
+                            description: "You can view the details in the patient's page.",
+                            duration: 5000,
+                        });
+                        navigate("/")
+                    }}>Complete Visit</Button>
                 </>
             )}
         </div>
