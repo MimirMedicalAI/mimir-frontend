@@ -3,6 +3,7 @@ import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import {useNavigate} from "react-router";
+import PatientService from '@/api/patientService.ts'
 
 function getGreeting() {
     const currentHour = new Date().getHours();
@@ -16,10 +17,15 @@ function getGreeting() {
 }
 
 function DoctorHome() {
+    const {data: patients, isLoading: isLoadingPatients, isError: isErrorPatients} = PatientService.useGetPatients();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
 
-    const patients = [
+    console.log(patients)
+    console.log(isLoadingPatients)
+    console.log(isErrorPatients)
+
+    const mockPatients = [
         {name: "Erika Mustermann", gender: "Female", age: 74, time: "10:00"},
         {name: "Jackson Lee", gender: "Male", age: 32, time: "10:30"},
         {name: "Isabella Nguyen", gender: "Female", age: 25, time: "11:00"},
@@ -28,7 +34,7 @@ function DoctorHome() {
     ];
 
     const filteredPatients = useMemo(() =>
-            patients.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
+            mockPatients.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
         , [searchTerm]);
 
     const greeting = getGreeting();
@@ -60,7 +66,7 @@ function DoctorHome() {
             <div className="p-6 rounded-lg shadow w-96 text-slate-800 space-y-6">
                 <h4>Upcoming Patients</h4>
                 <small>
-                    You have {patients.length} upcoming patients today
+                    You have {mockPatients.length} upcoming patients today
                 </small>
 
                 {/* Patient List */}
